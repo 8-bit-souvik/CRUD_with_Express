@@ -1,0 +1,153 @@
+
+* {
+  margin: 0%
+}
+
+body{
+  max-width: fit-content ;
+  overflow-x: hidden;
+}
+
+
+li {
+  display: inline;
+}
+
+header {
+  display: flex;
+  background-color: rgb(165, 42, 42);
+   padding: 7px;
+    height:45px;
+     z-index: 100000;
+      position:sticky;
+       top:-10px;
+}
+
+.logo {
+  border-radius: 50%;
+  border: 3px solid rgb(250, 246, 196);
+  position: relative;
+  left: 5%;
+  top: 8%;
+}
+
+.heading{position: relative;
+   top:30%;
+   left:8%;
+    font-weight: 800;
+     color: aquamarine;
+      text-shadow: 2px 2px rgb(247, 111, 111); 
+      font-family: lucida console, monaco,monospace; 
+      display:inline;}
+
+
+#navbar a:link {
+  text-decoration: none;
+  color: rgb(245, 180, 239);
+  margin-right: 5px;
+  float: center;
+  padding: 6px;
+  background-color: #5d1d6db6;
+  border-radius: 8px;
+  position: relative;
+  left: 20%;
+  top: 25px;
+  display:inline; 
+  font-size:18px;
+}
+
+#navbar a:hover {
+  color: rgb(97, 10, 138);
+  background-color: rgb(221, 144, 56);
+}
+
+#navbar a:active {
+  background-color: rgb(250, 172, 3);
+}
+
+#navbar a:visited {
+  background-color: rgb(247, 230, 82);
+}
+
+body {
+  background-repeat: no-repeat;
+  
+}
+
+.content {z-index: 1;
+  margin: auto;
+  background-image: url("../images/background.jpg");
+  opacity: .9;
+  background-color: #cccccc;
+  background-size: cover;
+  height:350px;
+  width: 100%;
+  overflow-y: hidden;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(219, 242, 255);
+  position: relative;
+  top: 1.5%;
+  box-shadow: black 50px;
+}
+
+
+.contentin {
+  width:50%;
+
+}
+
+.contentin::first-letter {
+  font-size: 200%;
+}
+
+#sign_btn{
+  outline: none;
+   border-radius: 10px; 
+   border-color: rgb(250, 239, 142); 
+   border-width: 3px;
+    z-index: 1000;
+    height: 30px;
+    width:80px; 
+    background-color: transparent;
+     font-weight: 600; 
+     color:#fff
+}
+
+#sign_btn:hover{
+font-size: 15px;
+padding:  4px;
+box-shadow: 1px 1px 0 #fff;
+}
+
+#sign_btn:after{ animation: shine .5s .2s
+ease-in-out forward;
+}
+
+
+
+person{
+  display:flex; text-align: center; justify-content:center
+}
+
+
+.person{
+  text-align: center;
+   line-height: 15px;
+    padding:15px;
+     margin:10px 40px;
+      background-color:
+       rgb(154, 168, 154); border-radius:5px; 
+         padding: 8px 5px 5px;
+}
+
+
+
+.confession{
+  width:fit-content;
+   margin:0 10%;
+    text-align:center;
+     font-weight:bolder;
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}

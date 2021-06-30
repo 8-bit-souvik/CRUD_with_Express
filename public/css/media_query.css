@@ -1,0 +1,137 @@
+
+@media only screen and (max-width: 940px) {
+    #navbar { 
+      display:none;
+     }
+    }
+    
+    @media only screen and (min-width:940px) {
+      .navigation1{
+        display:none;
+      }
+    }
+  
+      
+
+@media only screen and (max-width: 825px) {
+    card {
+        position: static;
+     }
+   
+    .feature {
+        position: relative;
+        bottom: 20px;
+        margin: 0;
+    }
+}
+
+
+  @media only screen and (max-width:725px){
+    person{
+      display:flex;
+      flex-direction:column;
+    }
+  }
+  
+  
+  @media only screen and (max-width: 648px) {
+    .feature {
+        position: relative;
+        bottom: 30px;
+        margin: 0;
+        font-size: 12px;
+      
+    }
+}
+
+
+@media only screen and (max-width:620px){
+    .articles{
+         display:flex;
+         flex-direction:column;
+         padding:2%;
+    }
+}
+
+    @media only screen and (max-width: 550px) {
+      .content { 
+        display:block;
+       }
+       .contentin {
+        width:100%;
+        padding:0 2px;
+      }
+     
+      }
+
+        
+
+@media only screen and (max-width: 530px) {
+    firstrow {
+        display: table;
+    }
+
+    secondrow {
+        display: table;
+    }
+
+
+  @media only screen and (max-width: 440px){
+    .heading {
+      display:none;
+    }
+  }
+  
+
+
+    .feature {
+        position: relative;
+        top: .3px;
+    }
+
+}
+
+
+@media only screen and (max-width: 430px) {
+    .feature {
+        position: relative;
+        bottom: 20px;
+        margin: 0;
+    }
+
+    .summary {
+        margin: 0;
+    }
+}
+
+
+@media only screen and (max-width: 415px){
+    footer ul li a  {
+      display:flex;
+      flex-direction:column;
+    }
+  }
+
+
+@media only screen and (max-width: 360px) {
+    .card {
+        border: 2px solid rgb(238, 255, 249);
+        max-height: 250px;
+        max-width: 160px;
+        flex-direction: column;
+    }
+
+    .summary {
+        text-align: center;
+        justify-content: center;
+    }
+
+    .card img {
+        width: 160px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
+    }
+}
+
+
+  

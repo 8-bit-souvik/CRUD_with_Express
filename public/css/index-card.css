@@ -1,0 +1,65 @@
+
+        card {
+           position: relative;
+           left:120px;
+           
+        }
+
+        firstrow {
+            display: flex;
+        }
+
+        secondrow {
+            display: flex;
+        }
+
+article0{
+    padding:0px 20px;
+}
+
+        .card {
+            border: 2px solid rgb(238, 255, 249);
+            background-color: rgb(185, 248, 227);
+            display: flex;
+            max-width: 350px;
+            max-height: 120px;
+            border-radius: 5px;
+            box-shadow: 5px 5px 15px rgb(34, 77, 143);
+            flex-direction: row-reverse;
+            margin: 15px;
+        }
+
+        .summery {
+            
+            max-width: 500px;
+            line-height: 15px;
+            position: relative;
+            bottom: 15px;
+            text-align: center;
+            justify-content: center;
+            padding: 0px 0px;
+            
+        }
+
+        .feature {
+            background-color: rgba(255, 255, 0, 0.76);
+            max-width: cover;
+            position: relative;
+            top: 5px;
+            text-align: center;
+            color: rgb(255, 2, 158);
+            font-weight: bolder;
+            border-radius:5px;
+        }
+
+
+        .card:hover {
+            transform: scale(1.10);
+            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.6);
+        }
+
+        .card {
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+

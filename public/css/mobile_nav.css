@@ -1,0 +1,38 @@
+
+.dd{
+    flex-direction: row-reverse;
+    position: relative;
+    left:120%;
+    display:inline-block;
+   }
+   
+   
+   .dd-content{
+    position: relative;
+    right: 110px;
+    background-color: rgb(201, 230, 250);
+    width:150px;
+    height:0px;
+    box-shadow: 0 18px 36px rgb(0, 45, 128), 0 14px 11px rgb(126, 26, 26);
+    overflow: hidden;
+    transition: .5s;
+   }
+   
+   .dd:hover > .dd-content  {
+    height:245px;
+    display:block;
+   }
+   
+   .dd-content > a {
+    border-bottom: black solid 1px;
+    display:block;
+    padding:15px;
+    text-decoration:none;
+    color:black;
+   }
+   
+   .dd-content a:hover{
+   background-color:rgb(112, 112, 111);
+   color:blanchedalmond;
+   }
+   
