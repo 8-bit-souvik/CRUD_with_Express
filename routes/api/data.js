@@ -34,13 +34,14 @@ router.post('/', (req, res) => {
         age: req.body.age,
         email: req.body.email,
         active: false,
+        joined: Date(),
         id: uuid.v4()
     }
     if (!newData.name || !newData.age || !newData.email) {
-        return res.status(400).json({ msg: 'Please include serial and Title' })
+        return res.status(400).json({ msg: 'Please include name, age and email' })
     }
     data.push(newData);
-    res.json(data[data.length - 1]);
+    res.json({ msg: 'data pushed', newData });
 
     fs.writeFileSync('../dataBase/newData.json', `${data}`);
 })
@@ -56,11 +57,11 @@ router.put('/:sl', (req, res) => {
 
         data.forEach(data => {
             if (data.serial === parseInt(req.params.sl)) {
-                data.serial = updData.serial ? updData.serial : data.serial;
                 data.name = updData.name ? updData.name : data.name;
                 data.age = updData.age ? updData.age : data.age;
                 data.email = updData.email ? updData.email : data.email;
-                data.id = data.id ? data.id : uuid.v4();
+                data.active = updData.active !== undefined ? updData.active : data.active;    // this cannot be left updData.active, then it will execute that given boolian value
+                data.id = data.id ? data.id : uuid.v4();                                      //if any member's id is not specified in database then while update an uuid will be specified automatically.
 
                 res.json({ msg: 'data updated', data });
 
@@ -81,11 +82,24 @@ router.delete('/:sl', (req, res) => {
     const found = data.some(data => data.serial === parseInt(req.params.sl));
 
     if (found) {
-        data = data.filter(data => data.serial !== parseInt(req.params.sl));
-        res.json({
-            msg: 'data deleted',
-            data
-        });
+        
+      //  data = data.filter(data => data.serial !== parseInt(req.params.sl));
+
+      data.forEach(data => {
+          if (data.serial === parseInt(req.params.sl)) {
+              
+              //serial number of every member should be unique, so serial number will not be deleted due to avoid complexity.
+              data.name = undefined;
+              data.age = undefined;
+              data.email = undefined;
+              data.active = undefined; 
+              data.joined = undefined;
+              data.id = undefined;     
+
+              res.json({ msg: 'data deleted', data });
+          }
+      });
+
 
         fs.writeFileSync('../dataBase/newData.json', `${data}`);
     }
