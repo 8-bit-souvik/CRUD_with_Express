@@ -5,7 +5,7 @@ const fs = require('fs');
 
 
 
-var data = require('../../dataBase/typicode.json');
+var data = require('../../dataBase/members.json').data;
 
 //returns all data
 router.get('/', (req, res) => {
@@ -43,7 +43,7 @@ router.post('/', (req, res) => {
     data.push(newData);
     res.json({ msg: 'data pushed', newData });
 
-    fs.writeFileSync('../dataBase/newData.json', `${data}`);
+    fs.writeFileSync('../dataBase/members.json', `${JSON.stringify({data}, null, 1)}`);
 })
 
 
@@ -69,7 +69,7 @@ router.put('/:sl', (req, res) => {
             }
         });
 
-        fs.writeFileSync('../dataBase/newData.json', `${data}`);
+        fs.writeFileSync('../dataBase/members.json', `${JSON.stringify({data}, null, 1)}`);
     }
     else {
         res.status(400).json({ msg: `400 || data not found at serial number: ${req.params.sl}` });
@@ -101,7 +101,7 @@ router.delete('/:sl', (req, res) => {
       });
 
 
-        fs.writeFileSync('../dataBase/newData.json', `${data}`);
+        fs.writeFileSync('../dataBase/members.json', `${JSON.stringify({data}, null, 1)}`);
     }
     else {
         res.status(400).json({ msg: `400 || data not found at serial number: ${req.params.sl}` });
