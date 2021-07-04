@@ -1,0 +1,67 @@
+{
+ "data": [
+  {
+   "serial": 1,
+   "name": "rahul mishra",
+   "age": "29",
+   "email": "rahul@yahoo.com",
+   "active": true,
+   "joined": "Tue Jun 29 2021 17:24:39 GMT+0530 (India Standard Time)",
+   "id": "061d5700-cd5c-4ca8-a88b-f27ff31f0950"
+  },
+  {
+   "serial": 2,
+   "name": "aritra basu",
+   "age": "23",
+   "email": "aritra@yahoo.com",
+   "active": true,
+   "joined": "Wed Jun 30 2021 12:36:25 GMT+0530 (India Standard Time)",
+   "id": "a8dcb0cd-ddb7-4d7e-b88f-e34c2367a24a"
+  },
+  {
+   "serial": 3,
+   "name": "aishi dawn",
+   "age": "26",
+   "email": "aishi@yahoo.com",
+   "active": true,
+   "joined": "Wed Jun 30 2021 18:30:52 GMT+0530 (India Standard Time)",
+   "id": "4ce91a03-34f8-475b-83c9-2b7672ad3393"
+  },
+  {
+   "serial": 4,
+   "name": "aniket das",
+   "age": "30",
+   "email": "aniket@yahoo.com",
+   "active": true,
+   "joined": "Thu Jul 01 2021 05:12:36 GMT+0530 (India Standard Time)",
+   "id": "afff862d-f8f4-47ca-b05a-061cc106e422"
+  },
+  {
+   "serial": 5,
+   "name": "tanaya roy",
+   "age": "27",
+   "email": "tanaya@yahoo.com",
+   "active": true,
+   "joined": "Thu Jul 01 2021 16:58:15 GMT+0530 (India Standard Time)",
+   "id": "5be694a9-cbd2-4365-b80b-65a7a23d8387"
+  },
+  {
+   "serial": 6,
+   "name": "yash gupta",
+   "age": "25",
+   "email": "yash@gmail.com",
+   "active": false,
+   "joined": "Thu Jul 01 2021 17:03:15 GMT+0530 (India Standard Time)",
+   "id": "06a27d66-0a1c-48fe-ba87-ec257577d666"
+  },
+  {
+   "serial": 7,
+   "name": "souvik mandal",
+   "age": 19,
+   "email": "souvik@email.com",
+   "active": true,
+   "joined": "Sun Jul 04 2021 08:38:49 GMT+0530 (India Standard Time)",
+   "id": "c71baa50-8a86-42a4-adc6-e943f9fa1de3"
+  }
+ ]
+}
