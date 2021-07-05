@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD with express</title>
+</head>
+
+<body>
+
+    <div class="content">
+        <div class="card">
+            search member
+            <section class="input">
+                <input placeholder="search by serial number" type="number" id="serial">
+                <br>
+                <br>
+                OR
+                <br>
+                <input placeholder="search by name" type="text" id="name">
+
+
+            </section>
+            <input id="search" type="submit" value="Search">
+        </div>
+
+        <div class="result">
+            <h4>messege: </h4>
+            <div class="details"></div>
+        </div>
+
+    </div>
+
+    
+   
+    
+    <div class="navbar">
+
+
+        <a href="addmembers.html" > <div>add member</div></a>
+        <a href="viewmembers.html" ><div>member details</div></a>
+        <a href="updatemembers.html" ><div>update data</div></a>
+        <a href="deletemembers.html" ><div>delete data</div></a>
+    </div>
+
+
+    <style>
+        .navbar{
+            height: fit-content;
+            width: fit-content;
+            background-color: rgba(255, 228, 196, 0.438);
+            position: fixed;
+            top: 0;
+            display: inline-flex;
+            border-right: white 2px solid ;
+            
+        }
+        .navbar a {
+            padding: 15.5px;
+            border: darkolivegreen 2px solid;
+            color: floralwhite;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .navbar a:hover{
+            background-color: rgba(131, 93, 46, 0.438);
+        }
+
+        .navbar a:nth-child(2){
+            background-color: rgb(52, 85, 116); 
+            border-bottom-color: rgb(52, 85, 116) ;
+    }
+    </style>
+
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-size: large;
+        }
+
+        .content {
+            width: fit-content;
+            height: fit-content;
+            display: flex;
+            flex-wrap: wrap;
+            margin: auto;
+            position: relative;
+            top: 10ch;
+        }
+
+        .card {
+            width: 39ch;
+            height: 37ch;
+            background-color: rgb(226, 191, 145);
+            padding-top: 10px;
+            text-align: center;
+            margin: auto;
+            border: 2px solid black;
+        }
+
+        .input {
+            padding: 20px;
+            margin: 20px;
+            background-color: rgba(127, 255, 212, 0.753);
+            border-radius: 5px;
+            
+        }
+
+        .input>input {
+            margin-top: 10px;
+            outline: none;
+            height: 4ch;
+            width: 27ch;
+        }
+
+        #search {
+            height: 4.5ch;
+            width: 25ch;
+            cursor: pointer;
+            background-color: rgb(197, 43, 43);
+            color: rgb(255, 255, 255);
+        }
+
+        .result {
+            height: 37ch;
+            width: 39ch;
+            background-color: rgb(245, 230, 148);
+            margin-left: 10ch;
+            text-align: center;
+            margin: auto;
+            border: 2px solid black;
+        }
+
+        body {
+            background-color: rgb(52, 85, 116);
+        }
+
+        .details {
+            padding: 20px;
+            font-size: 16px;
+            text-align: left;
+            color: black;
+            line-height: 2.5ch;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+    </style>
+
+    <script>
+        let member = {
+
+            fetchMember: (data) => {
+                console.log(`${data} get fetched`);
+                fetch(`http://localhost:5500/database/data/${data}`, {
+                    method: "GET",
+                    headers: {
+                        "content-type": "application/json",
+                        "access-control-allow-headers": "*",
+                        "Access-Control-Allow-Method": "OPTION, HEAD, DELETE, POST, GET, PUT",
+                        "Access-control-Allow-Origin": "http://localhost:5500/database/data"
+                    }
+                })
+                    .then((Response) => {
+                        console.log(Response);
+                        return Response.json();
+                    })
+                    .then((getData) => {
+                        member.displayMeamber(getData);
+                    })
+                    .catch(err => { console.log(err) })
+            },
+
+            displayMeamber: (getData) => {
+                document.querySelector("#serial").value = '';
+                document.querySelector('#name').value = '';
+                console.log("data incomming");
+                console.log(getData)
+
+
+
+                if (getData[0] != undefined) {
+                    console.log("data searched by serial number");
+                    const { serial } = getData[0];
+                    const { name } = getData[0];
+                    const { age } = getData[0];
+                    const { email } = getData[0];
+                    const { active } = getData[0];
+                    const { joined } = getData[0];
+                    const { id } = getData[0];
+
+                    if ( getData[0].name === undefined && getData[0].age === undefined && getData[0].email === undefined && getData[0].active === undefined && getData[0].joined === undefined && getData[0].id === undefined) {
+                        document.querySelector(".details").innerHTML = `<br> <h6 style="text-align: center; color: chocolate;">member is already deleted</h6>`;
+                    } else
+
+                    document.querySelector(".details").innerHTML = `<br> <span class="topic"> serial: </span> ${serial} <br> <span class="topic"> name: </span> ${name} <br> <span class="topic"> age: </span> ${age} <br> <span class="topic"> email: </span> ${email} <br> <span class="topic"> active status: </span> ${active} <br> <span class="topic"> id: </span> ${id}<br> <span class="topic"> joined: </span> ${joined} <style> .topic{color: rgb(143, 70, 18)} </style>`;
+
+                } else if (getData.serial != undefined){
+                    console.log("data searched by name");
+                    const { msg } = getData;
+                    const { serial } = getData;
+                    document.querySelector(".details").innerHTML = `<br> <h6 style="text-align: center; color: chocolate;">${msg}</h6> <br> <br> serial number: ${serial} `;
+
+                } else {
+                    const { msg } = getData;
+                    document.querySelector(".details").innerHTML = `<br> <h6 style="text-align: center; color: chocolate;">${msg}</h6>`;
+                }
+            },
+
+            submitData: () => {
+                data = document.querySelector("#serial").value || document.querySelector("#name").value;
+                if (data != '') {
+                    console.log(data);
+                    member.fetchMember(data);
+                } else {
+                    console.log("enter some data");
+                    document.querySelector(".details").innerHTML = `<br> <h3 style="text-align: center; color: red;">Enter some valid data</h3>`;
+
+                }
+
+            }
+
+        }
+
+
+        document.querySelector("#search").addEventListener("click", function () {
+            member.submitData();
+        });
+
+
+
+    </script>
+
+</body>
+
+</html>

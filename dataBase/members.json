@@ -56,12 +56,15 @@
   },
   {
    "serial": 7,
-   "name": "souvik mandal",
-   "age": 19,
-   "email": "souvik@email.com",
+   "name": "anirban guha",
+   "age": "22",
+   "email": "anirban@gmail.com",
    "active": true,
-   "joined": "Sun Jul 04 2021 08:38:49 GMT+0530 (India Standard Time)",
-   "id": "c71baa50-8a86-42a4-adc6-e943f9fa1de3"
+   "joined": "Sun Jul 04 2021 09:07:53 GMT+0530 (India Standard Time)",
+   "id": "954ac7e7-68cc-4647-8be2-ccf704d66851"
+  },
+  {
+   "serial": 8
   }
  ]
 }

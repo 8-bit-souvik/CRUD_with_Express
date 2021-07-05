@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD with express</title>
+</head>
+
+<body>
+
+    <div class="content">
+        <div class="card">
+            update existing member
+            <section class="input">
+                <input placeholder="enter serial number" type="number" id="serial">*
+                <br>
+                <input placeholder="enter name" type="text" id="text"> &nbsp;
+                <br>
+                <input placeholder="enter age" type="number" id="number"> &nbsp;
+                <br>
+                <input placeholder="enter email" type="email" id="email"> &nbsp;
+
+                <br>
+                <!-- Rounded switch -->
+                <div class="toggle">
+                    active status: <label class="switch">
+                        <input type="checkbox" class="checkbox">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+
+            </section>
+            <input class="submit reload" type="submit" value="Submit">
+        </div>
+
+        <div class="result">
+            <h4>messege: </h4>
+            <div class="details"></div>
+        </div>
+
+    </div>
+
+    
+    <div class="navbar">
+
+
+        <a href="addmembers.html" > <div>add member</div></a>
+        <a href="viewmembers.html" ><div>member details</div></a>
+        <a href="updatemembers.html" ><div>update data</div></a>
+        <a href="deletemembers.html" ><div>delete data</div></a>
+    </div>
+
+
+    <style>
+        .navbar{
+            height: fit-content;
+            width: fit-content;
+            background-color: rgba(255, 228, 196, 0.438);
+            position: fixed;
+            top: 0;
+            display: inline-flex;
+            border-right: white 2px solid ;
+            
+        }
+        .navbar a {
+            padding: 15.5px;
+            border: darkolivegreen 2px solid;
+            color: floralwhite;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .navbar a:hover{
+            background-color: rgba(131, 93, 46, 0.438);
+        }
+
+        .navbar a:nth-child(3){
+            background-color: rgb(52, 85, 116); 
+            border-bottom-color: rgb(52, 85, 116) ;
+    }
+    </style>
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-size: large;
+        }
+
+        .content {
+            width: fit-content;
+            height: fit-content;
+            display: flex;
+            flex-wrap: wrap;
+            margin: auto;
+            position: relative;
+            top: 10ch;
+        }
+
+        .card {
+            width: fit-content;
+            height: 45ch;
+            background-color: rgb(226, 191, 145);
+            padding-top: 10px;
+            text-align: center;
+            margin: auto;
+            border: 2px solid black;
+        }
+
+        .input {
+            padding: 20px;
+            margin: 20px;
+            background-color: rgba(127, 255, 212, 0.753);
+            border-radius: 5px;
+            color: rgb(182, 0, 0);
+        }
+
+        .input>input {
+            margin: 5px;
+            outline: none;
+            height: 3.5ch;
+            width: 27ch;
+        }
+
+        .submit {
+            height: 5ch;
+            width: 25ch;
+            cursor: pointer;
+            background-color: rgb(197, 43, 43);
+            color: rgb(255, 255, 255);
+        }
+
+        .result {
+            height: 45ch;
+            width: 39ch;
+            background-color: rgb(245, 230, 148);
+            margin-left: 10ch;
+            text-align: center;
+            margin: auto;
+            border: 2px solid black;
+        }
+
+        body {
+            background-color: rgb(52, 85, 116);
+        }
+
+        .details {
+            padding: 20px;
+            font-size: 15px;
+            text-align: left;
+            color: rgb(173, 85, 21);
+        }
+
+
+
+        /* for toggle */
+
+
+
+        /* The switch - the box around the slider */
+        .switch {
+            position: relative;
+            left: 8ch;
+
+
+            display: inline-block;
+            width: 80px;
+            height: 25px;
+        }
+
+        /* Hide default HTML checkbox */
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        /* The slider */
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgb(167, 166, 166);
+            -webkit-transition: .1s;
+            transition: .1s;
+            box-shadow: rgb(167, 166, 166) 0 0 0 2px;
+        }
+
+        .slider:before {
+            position: absolute;
+            right: 30px;
+            content: "";
+            height: 25px;
+            width: 50px;
+            background-color: white;
+            -webkit-transition: .1s;
+            transition: .1s;
+        }
+
+        input:checked+.slider {
+            background-color: #2196F3;
+            box-shadow: #2196F3 0 0 0 2px;
+        }
+
+
+        input:checked+.slider:before {
+            -webkit-transform: translateX(30px);
+            -ms-transform: translateX(30px);
+            transform: translateX(30px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 30px;
+        }
+
+        .slider.round:before {
+            border-radius: 30px;
+        }
+
+        .toggle {
+            margin-top: 5px;
+            text-align: left;
+            font-size: larger;
+            font-family: 'Times New Roman', Times, serif;
+            color: black;
+        }
+    </style>
+
+
+    <script>
+
+
+        let member = {
+
+
+            fetchMember: (data) => {
+                let text = data[0]; console.log(text);
+                let number = data[1]; console.log(number);
+                let email = data[2]; console.log(email);
+                let serial = data[3]; console.log(serial);
+                let toggle = data[4]; console.log(toggle);
+
+
+                fetch(`http://localhost:5500/database/data/${serial}`, {
+                    method: "PUT",
+                    headers: {
+                        "content-type": "application/json",
+                        "access-control-allow-headers": "*",
+                        "Access-Control-Allow-Method": "OPTION, HEAD, DELETE, POST, GET, PUT",
+                        "Access-control-Allow-Origin": "http://localhost:5500/database/data"
+                    },
+                    body: JSON.stringify({
+                        name: text,
+                        age: number,
+                        email: email,
+                        active: toggle
+                    })
+                })
+                    .then((Response) => {
+                        console.log(Response);
+                        return Response.json();
+                    })
+                    .then((getResponse) => {
+                        member.displayMeamber(getResponse)
+                    })
+                    .catch(err => { console.log(err) })
+            },
+
+            displayMeamber: (getResponse) => {
+                document.querySelector("#serial").value = '';
+                document.querySelector("#text").value = '';
+                document.querySelector('#number').value = '';
+                document.querySelector('#email').value = '';
+                console.log("data incomming");
+                console.log(getResponse)
+
+
+                const { msg } = getResponse;
+
+                if (getResponse.data != undefined) {
+                    const { name } = getResponse.data;
+                    const { age } = getResponse.data;
+                    const { email } = getResponse.data;
+                    const { serial } = getResponse.data;
+                    const { id } = getResponse.data;
+                    const { active } = getResponse.data;
+
+
+                    document.querySelector(".details").innerHTML = `<h3 style="text-align: center; color: rgb(25, 214, 0);">${msg}</h3> <br> serial: ${serial} <br><br> id: ${id} <br><br> name: ${name} <br><br> age: ${age} <br><br> email: ${email} <br><br> active status: ${active}`;
+
+                } else {
+                    document.querySelector(".details").innerHTML = `<br> <h3 style="text-align: center; color: red;">${msg}</h3>`;
+                }
+
+
+            },
+
+            submitData: () => {
+                data = [document.querySelector('#text').value, document.querySelector('#number').value, document.querySelector('#email').value, document.querySelector('#serial').value, document.querySelector(".checkbox").checked];
+                console.log(data);
+                member.fetchMember(data);
+            }
+        }
+
+        document.querySelector(".submit").addEventListener("click", function () {
+            member.submitData();
+        });
+
+
+
+        
+        //toggle value
+
+        checkbox = document.querySelector(".checkbox").value;
+
+        checkbox = "off";
+
+        document.querySelector(".checkbox").addEventListener("click", function () {
+            if (checkbox == "off") {
+                checkbox = "on"
+            } else {
+                checkbox = "off"
+            };
+
+            console.log(checkbox);
+        });
+
+        console.log(checkbox);
+
+    </script>
+
+
+
+
+
+
+
+</body>
+
+</html>
