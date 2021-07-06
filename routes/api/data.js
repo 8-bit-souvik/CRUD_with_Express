@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const uuid = require('uuid');
 const fs = require('fs');
-
+                
 
 
 var data = require('../../dataBase/members.json').data;
@@ -42,8 +42,7 @@ router.get('/:sl', (req, res) => {
 
 //create new data
 router.post('/', (req, res) => {
-    console.log(`${req.body}`);
-    console.log(`${req.body.name} ${req.body.age} ${req.body.email}`);
+  
     const newData = {
         serial: data.length + 1,
         name: req.body.name,
@@ -66,8 +65,7 @@ router.post('/', (req, res) => {
 
 // Update a data
 router.put('/:sl', (req, res) => {
-    console.log(`${req.body}`);
-    console.log(`${req.body.name} ${req.body.age} ${req.body.email}`);
+                                                  
     const found = data.some(data => data.serial === parseInt(req.params.sl));
 
     if (found) {
@@ -76,14 +74,18 @@ router.put('/:sl', (req, res) => {
 
         data.forEach(data => {
             if (data.serial === parseInt(req.params.sl)) {
-                data.name = updData.name ? updData.name : data.name;
-                data.age = updData.age ? updData.age : data.age;
-                data.email = updData.email ? updData.email : data.email;
-                data.active = updData.active !== undefined ? updData.active : data.active;    // this cannot be left updData.active, then it will execute that given boolian value
-                data.id = data.id ? data.id : uuid.v4();                                      //if any member's id is not specified in database then while update an uuid will be specified automatically.
 
-                res.json({ msg: 'data updated', data });
+                if (data.name === undefined || data.age === undefined || data.email === undefined || data.active === undefined || data.id === undefined) {
+                    res.status(400).json({ msg: `member is already deleted` });
+                } else {
+                    data.name = updData.name ? updData.name : data.name;
+                    data.age = updData.age ? updData.age : data.age;
+                    data.email = updData.email ? updData.email : data.email;
+                    data.active = updData.active !== undefined ? updData.active : data.active;    // this cannot be left updData.active, then it will execute that given boolian value
+                    data.id = data.id ? data.id : uuid.v4();                                      //if any member's id is not specified in database then while update an uuid will be specified automatically.
 
+                    res.json({ msg: 'data updated', data });
+                }
 
             }
         });
@@ -104,7 +106,8 @@ router.delete('/:sl', (req, res) => {
 
         //  data = data.filter(data => data.serial !== parseInt(req.params.sl));
 
-        data.forEach(data => { console.log(data.serial);
+        data.forEach(data => {
+                               
             if (data.serial === parseInt(req.params.sl) && data.name === (req.body.name)) {
 
                 //serial number of every member should be unique, so serial number will not be deleted due to avoid complexity.
@@ -115,10 +118,10 @@ router.delete('/:sl', (req, res) => {
                 data.joined = undefined;
                 data.id = undefined;
 
-                
+
 
                 res.json({ msg: `data deleted at serial number ${data.serial}`, data });
-            } 
+            }
         });
 
 

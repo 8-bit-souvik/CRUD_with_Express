@@ -5,7 +5,7 @@
    "name": "rahul mishra",
    "age": "29",
    "email": "rahul@yahoo.com",
-   "active": true,
+   "active": false,
    "joined": "Tue Jun 29 2021 17:24:39 GMT+0530 (India Standard Time)",
    "id": "061d5700-cd5c-4ca8-a88b-f27ff31f0950"
   },
@@ -14,7 +14,7 @@
    "name": "aritra basu",
    "age": "23",
    "email": "aritra@yahoo.com",
-   "active": true,
+   "active": false,
    "joined": "Wed Jun 30 2021 12:36:25 GMT+0530 (India Standard Time)",
    "id": "a8dcb0cd-ddb7-4d7e-b88f-e34c2367a24a"
   },
@@ -41,7 +41,7 @@
    "name": "tanaya roy",
    "age": "27",
    "email": "tanaya@yahoo.com",
-   "active": true,
+   "active": false,
    "joined": "Thu Jul 01 2021 16:58:15 GMT+0530 (India Standard Time)",
    "id": "5be694a9-cbd2-4365-b80b-65a7a23d8387"
   },
@@ -62,6 +62,27 @@
    "active": true,
    "joined": "Sun Jul 04 2021 09:07:53 GMT+0530 (India Standard Time)",
    "id": "954ac7e7-68cc-4647-8be2-ccf704d66851"
+  },
+  {
+   "serial": 8
+  },
+  {
+   "serial": 9,
+   "name": "souvik mandal",
+   "age": "19",
+   "email": "souvik@email.com",
+   "active": false,
+   "joined": "Tue Jul 06 2021 13:14:10 GMT+0530 (India Standard Time)",
+   "id": "143c2449-aab2-4dc8-84f2-b409d8172bd8"
+  },
+  {
+   "serial": 10
+  },
+  {
+   "serial": 11
+  },
+  {
+   "serial": 12
   }
  ]
 }
