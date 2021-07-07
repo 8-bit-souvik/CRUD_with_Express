@@ -4,7 +4,6 @@ a simple backend application with express JS has been created to serve a static 
 
 
 ![Example operation](https://giphy.com/gifs/3SKsm3cJn1SD7Dnnm2)
-<img src="https://giphy.com/gifs/3SKsm3cJn1SD7Dnnm2" width="200" height="100" />
 
 
 #### Clone the repository into local system
