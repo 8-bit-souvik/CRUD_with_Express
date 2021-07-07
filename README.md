@@ -1,6 +1,12 @@
 # CRUD_with_Express
 a simple backend application with express JS has been created to serve a static website and to perform CRUD operation with sample data.
 
+
+
+![Example operation](https://giphy.com/gifs/3SKsm3cJn1SD7Dnnm2)
+
+
+
 #### Clone the repository into local system
 
 #### Install all dependencies using command ```npm install```
