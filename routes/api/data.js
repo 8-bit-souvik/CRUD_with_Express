@@ -9,7 +9,13 @@ var data = require('../../dataBase/members.json').data;
 
 //returns all data
 router.get('/all', (req, res) => {
-    res.json(data);
+    var viewData = [];
+    data.forEach(data => {
+        if (data.name !== undefined) {
+            viewData.push(data);
+        }
+    });
+    res.json(viewData);
 });
 
 
