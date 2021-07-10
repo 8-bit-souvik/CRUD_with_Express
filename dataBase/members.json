@@ -3,7 +3,7 @@
   {
    "serial": 1,
    "name": "rahul mishra",
-   "age": "29",
+   "age": 29,
    "email": "rahul@yahoo.com",
    "active": false,
    "joined": "Tue Jun 29 2021 17:24:39 GMT+0530 (India Standard Time)",
@@ -12,7 +12,7 @@
   {
    "serial": 2,
    "name": "aritra basu",
-   "age": "23",
+   "age": 23,
    "email": "aritra@yahoo.com",
    "active": false,
    "joined": "Wed Jun 30 2021 12:36:25 GMT+0530 (India Standard Time)",
@@ -21,7 +21,7 @@
   {
    "serial": 3,
    "name": "aishi dawn",
-   "age": "26",
+   "age": 26,
    "email": "aishi@yahoo.com",
    "active": true,
    "joined": "Wed Jun 30 2021 18:30:52 GMT+0530 (India Standard Time)",
@@ -30,7 +30,7 @@
   {
    "serial": 4,
    "name": "aniket das",
-   "age": "30",
+   "age": 30,
    "email": "aniket@yahoo.com",
    "active": true,
    "joined": "Thu Jul 01 2021 05:12:36 GMT+0530 (India Standard Time)",
@@ -39,7 +39,7 @@
   {
    "serial": 5,
    "name": "tanaya roy",
-   "age": "27",
+   "age": 27,
    "email": "tanaya@yahoo.com",
    "active": false,
    "joined": "Thu Jul 01 2021 16:58:15 GMT+0530 (India Standard Time)",
@@ -48,7 +48,7 @@
   {
    "serial": 6,
    "name": "yash gupta",
-   "age": "25",
+   "age": 25,
    "email": "yash@gmail.com",
    "active": false,
    "joined": "Thu Jul 01 2021 17:03:15 GMT+0530 (India Standard Time)",
@@ -57,7 +57,7 @@
   {
    "serial": 7,
    "name": "anirban guha",
-   "age": "22",
+   "age": 22,
    "email": "anirban@gmail.com",
    "active": true,
    "joined": "Sun Jul 04 2021 09:07:53 GMT+0530 (India Standard Time)",
@@ -69,7 +69,7 @@
   {
    "serial": 9,
    "name": "souvik mandal",
-   "age": "19",
+   "age": 19,
    "email": "souvik@email.com",
    "active": false,
    "joined": "Tue Jul 06 2021 13:14:10 GMT+0530 (India Standard Time)",
@@ -83,6 +83,18 @@
   },
   {
    "serial": 12
+  },
+  {
+   "serial": 13,
+   "name": "avik roy",
+   "age": 23,
+   "email": "avik@yahoo.com",
+   "active": false,
+   "joined": "Fri Jul 09 2021 22:48:54 GMT+0530 (India Standard Time)",
+   "id": "3a57f07c-e65c-4773-8275-616de52110aa"
+  },
+  {
+   "serial": 14
   }
  ]
 }

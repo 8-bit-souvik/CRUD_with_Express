@@ -45,7 +45,7 @@
     
     <div class="navbar">
 
-
+        <a href="index.html" > <div>home</div></a>
         <a href="addmembers.html" > <div>add member</div></a>
         <a href="viewmembers.html" ><div>member details</div></a>
         <a href="updatemembers.html" ><div>update data</div></a>
@@ -75,7 +75,7 @@
             background-color: rgba(131, 93, 46, 0.438);
         }
 
-        .navbar a:nth-child(3){
+        .navbar a:nth-child(4){
             background-color: rgb(52, 85, 116); 
             border-bottom-color: rgb(52, 85, 116) ;
     }
@@ -251,10 +251,9 @@
                 fetch(`http://192.168.1.128:5500/database/data/${serial}`, {
                     method: "PUT",
                     headers: {
-                        "content-type": "application/json",
-                        "access-control-allow-headers": "*",
-                        "Access-Control-Allow-Method": "OPTION, HEAD, DELETE, POST, GET, PUT",
-                        "Access-control-Allow-Origin": "http://localhost:5500/database/data"
+                        "key": "12345",
+                        "content-type": "application/json"
+                        
                     },
                     body: JSON.stringify({
                         name: text,
@@ -303,7 +302,7 @@
             },
 
             submitData: () => {
-                data = [document.querySelector('#text').value, document.querySelector('#number').value, document.querySelector('#email').value, document.querySelector('#serial').value, document.querySelector(".checkbox").checked];
+                data = [document.querySelector('#text').value.toLowerCase(), parseInt(document.querySelector('#number').value), document.querySelector('#email').value.toLowerCase(), parseInt(document.querySelector('#serial').value), document.querySelector(".checkbox").checked];
                 console.log(data);
                 member.fetchMember(data);
             }

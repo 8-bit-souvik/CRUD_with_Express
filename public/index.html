@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>member list</title>
+</head>
+
+<body>
+    <div class="navbar">
+
+
+        <a href="index.html" > <div>home</div></a>
+        <a href="addmembers.html" > <div>add member</div></a>
+        <a href="viewmembers.html" ><div>member details</div></a>
+        <a href="updatemembers.html" ><div>update data</div></a>
+        <a href="deletemembers.html" ><div>delete data</div></a>
+    </div>
+<br>
+<br>
+<br>
+    <h2>All members list</h2>
+    <div>
+        <table>
+            <tr>
+                <th width="50px">SL. no.</th>
+                <th width="300px">Name</th>
+                <th>email</th>
+                <th width="150px">active</th>
+                <th><button type="button"></button></th>
+            </tr>
+        </table>
+        <table class="list">
+          
+        </table>
+    </div>
+
+    <style>
+        .navbar{
+            height: fit-content;
+            width: fit-content;
+            background-color: rgba(255, 228, 196, 0.438);
+            position: fixed;
+            top: 0;
+            display: inline-flex;
+            border-right: white 2px solid ;
+            
+        }
+        .navbar a {
+            padding: 15.5px;
+            border: darkolivegreen 2px solid;
+            color: rgb(0, 0, 0);
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .navbar a:hover{
+            background-color: rgba(131, 93, 46, 0.438);
+        }
+
+        .navbar a:nth-child(1){
+            background-color: rgb(52, 85, 116); 
+            border-bottom-color: rgb(52, 85, 116) ;
+            color: aliceblue;
+    }
+    </style>
+
+    <style>
+        body{
+            background-color: rgb(97, 125, 150);
+        }
+        h2 {
+            text-align: center;
+        }
+
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 85%;
+            margin: auto;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+        tr:nth-child(odd) {
+            background-color: #ffffff;
+        }
+    </style>
+
+    <script>
+        const members = {
+            fetchRequest: () =>  {
+                fetch(`http://192.168.1.128:5500/database/data/all`, {
+                    method: "GET",
+                    headers: {
+                        "key": "12345"
+                    }
+                })
+
+                .then((Response) => {
+                        console.log(Response);
+                        return Response.json();
+                    })
+                    .then((getData) => {
+                        members.displayMeamber(getData);
+                    })
+                    .catch(err => { console.log(err) })
+            },
+            displayMeamber: (getData) => {
+                console.log(getData);
+                var display = '';
+                for ( index = 0; index < getData.length; index++) {
+                    const { serial } = getData[index];
+                    const { name } = getData[index];
+                    const { email } = getData[index];
+                    const { active } = getData[index];
+                    
+                 display +=   `<tr> <td>${serial}</td> <td>${name}</td>  <td>${email}</td> <td>${active}</td> <th><button type="button" value="view details">view details</button></th>   </tr>`
+
+
+                }
+                document.querySelector('.list').innerHTML = display;
+            },
+
+            submitData: () => {
+             members.fetchRequest();
+            }
+        }
+
+        window.onload(members.submitData())
+    </script>
+</body>
+
+</html>
