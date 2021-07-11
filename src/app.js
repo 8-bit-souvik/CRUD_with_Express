@@ -27,7 +27,7 @@ app.use(urlencoded({extended: false}));
 
 
 //Data API routes
-app.use('/database/data', require('../routes/api/data'));
+app.use('/api/data', require('../routes/api/data'));
 
 
 //set static folder
