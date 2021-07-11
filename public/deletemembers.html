@@ -14,12 +14,12 @@
         <div class="card">
             delete existing member
             <section class="input">
-                <input placeholder="enter serial number" type="number" id="serial">*
+                <div class="field"><input placeholder="enter serial number" type="number" id="serial">*</div>
                 <br>
-                <input placeholder="enter name" type="text" id="text">*
-                <br>
+                <div class="field"><input placeholder="enter name" type="text" id="text">*</div>
+                
 
-                <br>
+                
            
 
             </section>
@@ -112,7 +112,7 @@
             color: rgb(182, 0, 0);
         }
 
-        .input>input {
+        .input input {
             margin: 5px;
             outline: none;
             height: 3.5ch;
@@ -147,9 +147,10 @@
             text-align: left;
             color: rgb(173, 85, 21);
         }
-
-
-
+        .field{
+            display: flex;
+            flex-wrap: nowrap;
+        }
     </style>
 
 

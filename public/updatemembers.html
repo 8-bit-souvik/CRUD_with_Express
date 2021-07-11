@@ -14,15 +14,15 @@
         <div class="card">
             update existing member
             <section class="input">
-                <input placeholder="enter serial number" type="number" id="serial">*
-                <br>
-                <input placeholder="enter name" type="text" id="text"> &nbsp;
-                <br>
-                <input placeholder="enter age" type="number" id="number"> &nbsp;
-                <br>
-                <input placeholder="enter email" type="email" id="email"> &nbsp;
+                <div class="field"><input placeholder="enter serial number" type="number" id="serial">*</div>
+                
+                <div class="field"><input placeholder="enter name" type="text" id="text"> &nbsp; </div>
+                
+                <div class="field"><input placeholder="enter age" type="number" id="number"> &nbsp; </div>
+                
+                <div class="field"><input placeholder="enter email" type="email" id="email"> &nbsp; </div>
 
-                <br>
+                
                 <!-- Rounded switch -->
                 <div class="toggle">
                     active status: <label class="switch">
@@ -118,7 +118,7 @@
             color: rgb(182, 0, 0);
         }
 
-        .input>input {
+        .input input {
             margin: 5px;
             outline: none;
             height: 3.5ch;
@@ -154,7 +154,10 @@
             color: rgb(173, 85, 21);
         }
 
-
+        .field{
+            display: flex;
+            flex-wrap: nowrap;
+        }
 
         /* for toggle */
 

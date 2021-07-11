@@ -14,12 +14,12 @@
         <div class="card">
             enter new member
             <section class="input">
+                
+                <div class="field"><input placeholder="enter name " type="text" id="text">*</div>
                 <br>
-                <input placeholder="enter name " type="text" id="text">*
+                <div class="field"><input placeholder="enter age" type="number" id="number">*</div>
                 <br>
-                <input placeholder="enter age" type="number" id="number">*
-                <br>
-                <input placeholder="enter email" type="email" id="email">*
+                <div class="field"><input placeholder="enter email" type="email" id="email">*</div>
             </section>
             <input class="submit reload" type="submit" value="Submit">
         </div>
@@ -32,30 +32,41 @@
     </div>
 
 
-    
-    
-    
+
+
+
     <div class="navbar">
 
-        <a href="index.html" > <div>home</div></a>
-        <a href="addmembers.html" > <div>add member</div></a>
-        <a href="viewmembers.html" ><div>member details</div></a>
-        <a href="updatemembers.html" ><div>update data</div></a>
-        <a href="deletemembers.html" ><div>delete data</div></a>
+        <a href="index.html">
+            <div>home</div>
+        </a>
+        <a href="addmembers.html">
+            <div>add member</div>
+        </a>
+        <a href="viewmembers.html">
+            <div>member details</div>
+        </a>
+        <a href="updatemembers.html">
+            <div>update data</div>
+        </a>
+        <a href="deletemembers.html">
+            <div>delete data</div>
+        </a>
     </div>
 
 
     <style>
-        .navbar{
+        .navbar {
             height: fit-content;
             width: fit-content;
             background-color: rgba(255, 228, 196, 0.438);
             position: fixed;
             top: 0;
             display: inline-flex;
-            border-right: white 2px solid ;
-            
+            border-right: white 2px solid;
+
         }
+
         .navbar a {
             padding: 15.5px;
             border: darkolivegreen 2px solid;
@@ -63,14 +74,15 @@
             cursor: pointer;
             text-decoration: none;
         }
-        .navbar a:hover{
+
+        .navbar a:hover {
             background-color: rgba(131, 93, 46, 0.438);
         }
 
-        .navbar a:nth-child(2){
-            background-color: rgb(52, 85, 116); 
-            border-bottom-color: rgb(52, 85, 116) ;
-    }
+        .navbar a:nth-child(2) {
+            background-color: rgb(52, 85, 116);
+            border-bottom-color: rgb(52, 85, 116);
+        }
     </style>
 
 
@@ -106,13 +118,13 @@
 
         .input {
             padding: 20px;
-            margin: 20px;
+            margin: 17px;
             background-color: rgba(127, 255, 212, 0.753);
             border-radius: 5px;
             color: rgb(182, 0, 0);
         }
 
-        .input>input {
+        .input input {
             margin-top: 10px;
             outline: none;
             height: 4ch;
@@ -147,6 +159,10 @@
             text-align: left;
             color: rgb(173, 85, 21);
         }
+        .field{
+            display: flex;
+            flex-wrap: nowrap;
+        }
     </style>
 
 
@@ -163,7 +179,7 @@
 
 
                 fetch(`http://192.168.1.128:5500/database/data`, {
-                    method: "POST",                                                           
+                    method: "POST",
                     headers: {
                         "key": "12345",
                         "content-type": "application/json"
