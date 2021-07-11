@@ -37,7 +37,7 @@ const logger = (req, res, next) => {
 
     var log = `from ${req.protocol}://${clientIP}:${req.connection.remotePort}      to ${req.protocol}://${hostIP}:${req.connection.localPort}${req.originalUrl}: ${moment().format()} \n`;
 
-    fs.appendFile("../logs/request_details.log", log, 'utf8', (err => {
+    fs.appendFile(`${__dirname}/../logs/request_details.log`, log, 'utf8', (err => {
         if (err) return (console.log(err));
     }))
 
