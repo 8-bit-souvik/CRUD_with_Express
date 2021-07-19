@@ -5,7 +5,7 @@ a simple backend application with express JS has been created to serve a static 
 
 ![Example operation](https://ibb.co/KNbhyYm)
 
-[![view deplowment](https://www.herokucdn.com/view/button.svg)](http://crud-using-node.herokuapp.com/index.html)
+[![view deplowment]](http://crud-using-node.herokuapp.com/index.html)
 
 #### Clone the repository into local system
 
