@@ -171,6 +171,7 @@
                 fetch(`http://192.168.1.128:5500/database/data/${data}`, {
                     method: "GET",
                     headers: {
+                        "key": "12345",
                         "content-type": "application/json",
                         "access-control-allow-headers": "*",
                         "Access-Control-Allow-Method": "OPTION, HEAD, DELETE, POST, GET, PUT",

@@ -48,7 +48,7 @@ router.get('/:sl', (req, res) => {
 
 //create new data
 router.post('/', (req, res) => {
-  
+  if (req.headers.key === '12345') {
     const newData = {
         serial: data.length + 1,
         name: req.body.name,
@@ -66,6 +66,10 @@ router.post('/', (req, res) => {
     res.json({ msg: 'data pushed', newData });
 
     fs.writeFileSync('../dataBase/members.json', `${JSON.stringify({ data }, null, 1)}`);
+  } else {
+      res.status(403).json({msg: "authentication error"})
+  }
+   
 })
 
 
