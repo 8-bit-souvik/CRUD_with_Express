@@ -104,6 +104,15 @@
    "active": false,
    "joined": "Sat Jul 10 2021 18:11:30 GMT+0530 (India Standard Time)",
    "id": "03c24f72-8ace-40a9-9e20-ee9f2c9b493d"
+  },
+  {
+   "serial": 16,
+   "name": "arnab kumar",
+   "age": 23,
+   "email": "arnab@yahoo.com",
+   "active": true,
+   "joined": "Tue Jul 20 2021 10:13:34 GMT+0530 (India Standard Time)",
+   "id": "b16f3a74-962f-4685-98c4-a8c30118f641"
   }
  ]
 }
