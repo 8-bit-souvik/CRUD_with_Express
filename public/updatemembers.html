@@ -14,15 +14,15 @@
         <div class="card">
             update existing member
             <section class="input">
-                <input placeholder="enter serial number" type="number" id="serial">*
-                <br>
-                <input placeholder="enter name" type="text" id="text"> &nbsp;
-                <br>
-                <input placeholder="enter age" type="number" id="number"> &nbsp;
-                <br>
-                <input placeholder="enter email" type="email" id="email"> &nbsp;
+                <div class="field"><input placeholder="enter serial number" type="number" id="serial">*</div>
+                
+                <div class="field"><input placeholder="enter name" type="text" id="text"> &nbsp; </div>
+                
+                <div class="field"><input placeholder="enter age" type="number" id="number"> &nbsp; </div>
+                
+                <div class="field"><input placeholder="enter email" type="email" id="email"> &nbsp; </div>
 
-                <br>
+                
                 <!-- Rounded switch -->
                 <div class="toggle">
                     active status: <label class="switch">
@@ -45,7 +45,7 @@
     
     <div class="navbar">
 
-
+        <a href="index.html" > <div>home</div></a>
         <a href="addmembers.html" > <div>add member</div></a>
         <a href="viewmembers.html" ><div>member details</div></a>
         <a href="updatemembers.html" ><div>update data</div></a>
@@ -75,7 +75,7 @@
             background-color: rgba(131, 93, 46, 0.438);
         }
 
-        .navbar a:nth-child(3){
+        .navbar a:nth-child(4){
             background-color: rgb(52, 85, 116); 
             border-bottom-color: rgb(52, 85, 116) ;
     }
@@ -118,7 +118,7 @@
             color: rgb(182, 0, 0);
         }
 
-        .input>input {
+        .input input {
             margin: 5px;
             outline: none;
             height: 3.5ch;
@@ -154,7 +154,10 @@
             color: rgb(173, 85, 21);
         }
 
-
+        .field{
+            display: flex;
+            flex-wrap: nowrap;
+        }
 
         /* for toggle */
 
@@ -248,7 +251,7 @@
                 let toggle = data[4]; console.log(toggle);
 
 
-                fetch(`http://192.168.1.128:5500/database/data/${serial}`, {
+                fetch(`https://localhost:5500/api/data/${serial}`, {
                     method: "PUT",
                     headers: {
                         "key": "12345",
@@ -304,7 +307,7 @@
             },
 
             submitData: () => {
-                data = [document.querySelector('#text').value, document.querySelector('#number').value, document.querySelector('#email').value, document.querySelector('#serial').value, document.querySelector(".checkbox").checked];
+                data = [document.querySelector('#text').value.toLowerCase(), parseInt(document.querySelector('#number').value), document.querySelector('#email').value.toLowerCase(), parseInt(document.querySelector('#serial').value), document.querySelector(".checkbox").checked];
                 console.log(data);
                 member.fetchMember(data);
             }

@@ -14,12 +14,12 @@
         <div class="card">
             delete existing member
             <section class="input">
-                <input placeholder="enter serial number" type="number" id="serial">*
+                <div class="field"><input placeholder="enter serial number" type="number" id="serial">*</div>
                 <br>
-                <input placeholder="enter name" type="text" id="text">*
-                <br>
+                <div class="field"><input placeholder="enter name" type="text" id="text">*</div>
+                
 
-                <br>
+                
            
 
             </section>
@@ -37,7 +37,7 @@
     
     <div class="navbar">
 
-
+        <a href="index.html" > <div>home</div></a>
         <a href="addmembers.html" > <div>add member</div></a>
         <a href="viewmembers.html" ><div>member details</div></a>
         <a href="updatemembers.html" ><div>update data</div></a>
@@ -67,7 +67,7 @@
             background-color: rgba(131, 93, 46, 0.438);
         }
 
-        .navbar a:nth-child(4){
+        .navbar a:nth-child(5){
             background-color: rgb(52, 85, 116); 
             border-bottom-color: rgb(52, 85, 116) ;
     }
@@ -112,7 +112,7 @@
             color: rgb(182, 0, 0);
         }
 
-        .input>input {
+        .input input {
             margin: 5px;
             outline: none;
             height: 3.5ch;
@@ -147,9 +147,10 @@
             text-align: left;
             color: rgb(173, 85, 21);
         }
-
-
-
+        .field{
+            display: flex;
+            flex-wrap: nowrap;
+        }
     </style>
 
 
@@ -165,7 +166,7 @@
 
 
 
-                fetch(`http://192.168.1.128:5500/database/data/${serial}`, {
+                fetch(`https://localhost:5500/api/data/${serial}`, {
                     method: "DELETE",
                     headers: {
                         "key": "12345",
@@ -213,7 +214,7 @@
             },
 
             submitData: () => {
-                data = [document.querySelector('#text').value, document.querySelector('#serial').value];
+                data = [document.querySelector('#text').value.toLowerCase(), parseInt(document.querySelector('#serial').value)];
                 console.log(data);
                 member.fetchMember(data);
             }

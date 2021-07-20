@@ -13,19 +13,19 @@
     <div class="content">
         <div class="card">
             search member
-           
-                <section class="input">
-                    <input placeholder="search by serial number" type="number" id="serial">
-                    <br>
-                    <br>
-                    OR
-                    <br>
-                    <input placeholder="search by name" type="text" id="name">
+
+            <section class="input">
+                <input placeholder="search by serial number" type="number" id="serial">
+                <br>
+                <br>
+                OR
+                <br>
+                <input placeholder="search by name" type="text" id="name">
 
 
-                </section>
-                <input id="search" type="submit" value="Search">
-            
+            </section>
+            <input id="search" type="submit" value="Search">
+
         </div>
 
         <div class="result">
@@ -40,19 +40,11 @@
 
     <div class="navbar">
 
-
-        <a href="addmembers.html">
-            <div>add member</div>
-        </a>
-        <a href="viewmembers.html">
-            <div>member details</div>
-        </a>
-        <a href="updatemembers.html">
-            <div>update data</div>
-        </a>
-        <a href="deletemembers.html">
-            <div>delete data</div>
-        </a>
+        <a href="index.html" > <div>home</div></a>
+        <a href="addmembers.html"><div>add member</div></a>
+        <a href="viewmembers.html"><div>member details</div></a>
+        <a href="updatemembers.html"><div>update data</div></a>
+        <a href="deletemembers.html"><div>delete data</div></a>
     </div>
 
 
@@ -80,7 +72,7 @@
             background-color: rgba(131, 93, 46, 0.438);
         }
 
-        .navbar a:nth-child(2) {
+        .navbar a:nth-child(3) {
             background-color: rgb(52, 85, 116);
             border-bottom-color: rgb(52, 85, 116);
         }
@@ -168,7 +160,7 @@
 
             fetchMember: (data) => {
                 console.log(`${data} get fetched`);
-                fetch(`http://192.168.1.128:5500/database/data/${data}`, {
+                fetch(`https://localhost:5500/api/data/${data}`, {
                     method: "GET",
                     headers: {
                         "key": "12345",
@@ -225,7 +217,7 @@
             },
 
             submitData: () => {
-                data = document.querySelector("#serial").value || document.querySelector("#name").value;
+                data = document.querySelector("#serial").value.toLowerCase() || document.querySelector("#name").value.toLowerCase();
                 if (data != '') {
                     console.log(data);
                     member.fetchMember(data);

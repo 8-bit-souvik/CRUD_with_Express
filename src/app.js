@@ -10,11 +10,12 @@ require("dotenv").config({path:`../.env`});
 
 
 
+
 // to avoid CORS protection error
 app.use(cors())
  
 
-// init middleware
+// init middleware to record IP addresses
 const logger = require('../middleware/logger.js');
 app.use(logger);
 
@@ -26,7 +27,7 @@ app.use(urlencoded({extended: false}));
 
 
 //Data API routes
-app.use('/database/data', require('../routes/api/data'));
+app.use('/api/data', require('../routes/api/data'));
 
 
 //set static folder
@@ -48,12 +49,4 @@ const port = process.env.PORT || 8080;
 
 app.listen(port, ()=>{
     console.log(`port number : ${port} \n listening...`);
-
-    // const getIP = require('ipware')().get_ip;
-    // app.use(function(req, res, next){
-    // var ipInfo = getIP(req);
-    // console.log(ipInfo);
-    // next();
-    // })
-   
 })
